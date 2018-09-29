@@ -1,0 +1,44 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+
+    <form>
+                <div class="form-group">
+                    <label>Email or Username</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="text" />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input class="i-check" type="checkbox" />Remeber Me</label>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Sign In" />
+            </form>
+  
+           
+      <div class="gap gap-small"></div>
+            <ul class="list-inline">
+                <li><a href="#nav-account-dialog" class="popup-text">Not Member Yet</a>
+                </li>
+                <li><a href="#nav-pwd-dialog" class="popup-text">Forgot Password?</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mfp-with-anim mfp-hide mfp-dialog clearfix" id="nav-account-dialog">
+            <h3 class="widget-title">Create TheBox Account</h3>
+            <p>Ready to get best offers? Let's get started!</p>
+            <hr />
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <br>
+    <div>
+        <input  class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+               
+            

@@ -1,0 +1,19 @@
+{% extends "FOSUserBundle::xx.html.twig" %}
+{% block titre %} Mon compte {% endblock %}
+{% block fos_user_content %}
+
+    {% block  profile %}
+         <fieldset style="width:300px;">
+             <legend>Show profile</legend>
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+         </fieldset>
+{% endblock %}
+
+{% endblock fos_user_content %}
+{%block insc %}
+
+    <a href="{{path('fos_user_profile_show')}}">My Account</a>
+    
+    {% endblock %}
+       
+

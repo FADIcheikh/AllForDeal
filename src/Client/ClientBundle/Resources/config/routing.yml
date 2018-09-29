@@ -1,0 +1,66 @@
+client_homepage:
+    path:     /
+    defaults: { _controller: ClientBundle:Default:index }
+    
+    
+client_complete_profile_page:
+    path:     /profile/completeprofile
+    defaults: { _controller: ClientBundle:Default:completeprofile }
+    
+client_personal_profile_page:
+    path:     /profile/personalinformations
+    defaults: { _controller: ClientBundle:Default:personalprofile }
+    
+    
+    
+    
+chart_sexe:
+    path:     /back/pie-sexe
+    defaults: { _controller: ClientBundle:graphe:chart }
+    
+chart_active_account:
+    path:     /back/pie-active_account
+    defaults: { _controller: ClientBundle:graphe:chartactiveaccount }
+    
+chart_lock_account:
+    path:     /back/pie-locked_account
+    defaults: { _controller: ClientBundle:graphe:chartlockaccount }
+    
+chart_age:
+    path:     /back/hist-age
+    defaults: { _controller: ClientBundle:graphe:chartHistogramme }
+
+    
+
+
+admin_homepage:
+    path:     /back/
+    defaults: { _controller: ClientBundle:admin:index }   
+    
+admin_userspage:
+    path:     /back/users
+    defaults: { _controller: ClientBundle:admin:users }   
+    
+admin_users_lock_page:
+    path:     /back/users/lock/{id}
+    defaults: { _controller: ClientBundle:admin:lock }
+    
+admin_users_disable_page:
+    path:     /back/users/disable/{id}
+    defaults: { _controller: ClientBundle:admin:disable }
+
+
+admin_users_remove_page:
+    path:     /back/users/remove/{id}
+    defaults: { _controller: ClientBundle:admin:supprimerClient } 
+    
+admin_users_detail_page:
+    path:     /back/users/detail/{id}
+    defaults: { _controller: ClientBundle:admin:detailClient } 
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+
+

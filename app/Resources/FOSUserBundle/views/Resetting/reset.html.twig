@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::empty.html.twig" %}
+
+{% block fos_user_content %}
+    {% block body %}
+     
+        
+{% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
+
+   {% endblock %}
+{% endblock fos_user_content %}

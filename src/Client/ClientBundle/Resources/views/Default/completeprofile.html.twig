@@ -1,0 +1,55 @@
+{% extends "FOSUserBundle::xx.html.twig" %}
+{% block fos_user_content %}
+    {% block  profile %}
+<form method="POST">
+    
+     
+     
+   
+     
+  <div class="form-group">
+     
+   
+     
+  <div class="toggle_radio">
+       
+      <input type="radio" class="toggle_option" id="first_toggle" name="sexe" value="0">
+      <input type="radio" checked class="toggle_option" id="second_toggle" name="sexe" value="1">
+    
+    <label for="first_toggle"><p>Male</p></label>
+    <label for="second_toggle"><p>Female</p></label>
+    
+    <div class="toggle_option_slider">
+    </div>
+  </div>
+    </div>
+    
+    
+  <div class="form-group">
+      <input class="form-control" type="text" name="firstname" placeholder="Prénom" value="{{client.firstname}}" required="required">
+  </div>
+    <div class="form-group">
+           <input class="form-control" type="text" name="lastname" placeholder="Nom" value="{{client.lastname}}" required="required" >
+    </div>
+ 
+   
+   
+  <div class="form-group">
+      <input class="form-control" type="number" name="telephone" placeholder="Telephone" value="{{client.telephone}}" required="required">
+  </div>
+    <div class="form-group">
+        Date de naissance  <input class="form-control" type="date" name="datenaissance" class="glyphicon-calendar" required="required">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="adresse" placeholder="Adresse " value="{{client.adresse}}" required="required">
+    </div>
+  <input  class="btn btn-primary"  type="submit">
+</form>
+        {% endblock %}
+{% endblock fos_user_content %}
+
+{%block insc %}
+
+    <a href="{{path('fos_user_profile_show')}}">My Account</a>
+    
+    {% endblock %}

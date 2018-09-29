@@ -1,0 +1,31 @@
+{% extends "FOSUserBundle::xx.html.twig" %}
+{% block fos_user_content %}
+    {% block  profile %}
+<form method="POST">
+  <div class="form-group">
+      <input class="form-control" type="text" name="firstname" placeholder="Prénom">
+  </div>
+    <div class="form-group">
+           <input class="form-control" type="text" name="lastname" placeholder="Nom">
+    </div>
+
+   
+   
+  <div class="form-group">
+      <input class="form-control" type="number" name="telephone" placeholder="Telephone">
+  </div>
+    <div class="form-group">
+        Date de naissance  <input class="form-control" type="date" name="datenaissance" class="glyphicon-calendar">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="adresse" placeholder="Adresse ">
+    </div>
+  <input  class="btn btn-primary"  type="submit">
+</form>
+        {% endblock %}
+{% endblock fos_user_content %}
+{%block insc %}
+
+    <a href="{{path('fos_user_profile_show')}}">My Account</a>
+    
+    {% endblock %}

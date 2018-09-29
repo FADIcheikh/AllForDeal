@@ -1,0 +1,101 @@
+{% extends "ClientBundle:admin:index.html.twig" %}
+{% block title %}Users{%endblock%}
+
+{% block search %}
+    <div class="nav-search" id="nav-search">
+        <form class="form-search" method="POST" action="{{path('admin_userspage')}}">
+            <span class="input-icon">
+                <input type="text" name="q" placeholder="Search Users .. " class="nav-search-input" name="username"  autocomplete="on" />
+                <i class="ace-icon fa fa-search nav-search-icon"></i>
+
+            </span>
+        </form>
+
+    </div><!-- /.nav-search -->
+
+{% endblock %}
+{% block href %}{{path('admin_userspage')}}{% endblock %}
+{% block n_href %}Users{% endblock %}
+{% block actuel %} List users{% endblock %}
+
+{% block contenu %}
+
+    <table id="exemple1" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+
+                <th>Login </th>
+
+                <th class="hidden-480">E-mail</th>
+
+                <th>
+                    <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                    Last Login
+                </th>
+                <th> Locked </th>
+                <th class="hidden-480">Status</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {% for clientx in client %}
+
+
+                    <td>
+                        {{clientx.username}}
+                    </td>
+
+                    <td class="hidden-480">{{clientx.email}}</td>
+                    <td>{{clientx.lastLogin|date('d/m/y h:m')}}</td>
+                    <td>
+                        {% if clientx.locked == 0 %}
+                            <span class="label label-sm label-inverse arrowed-in">NO</span>
+                        {% else %}
+                            <span class="label label-sm label-info arrowed arrowed-righ" >YES</span>
+                        {% endif %}
+                    </td>
+
+                    <td class="hidden-480">
+                        {% if clientx.enabled == 0 %}
+                            <span class="label label-sm label-warning">Disabled Account</span>
+                        {% else %}
+                            <span class="label label-sm label-success">Active Account</span>
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+                        <div class="hidden-sm hidden-xs action-buttons">
+                            <a class="blue" href="{{path('admin_users_detail_page',{'id':clientx.id})}}">
+                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
+                            </a>
+
+                            <a class="green" href="{{path('admin_users_lock_page',{'id':clientx.id})}}"  class="popup-text">
+                                <i class="ace-icon fa fa-pencil bigger-130"></i>
+
+                            </a>
+
+
+
+
+
+                            <a class="red" href="{{path('admin_users_remove_page',{'id':clientx.id})}}">
+                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                            </a>
+                        </div>
+
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+          
+
+
+
+{% endblock%}

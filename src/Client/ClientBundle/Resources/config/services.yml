@@ -1,0 +1,11 @@
+#services:
+#    client.example:
+#        class: Client\ClientBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+services:
+  redirect.after.login:
+    class: Client\ClientBundle\Redirection\AfterLoginRedirection
+    arguments: [@router]
+
